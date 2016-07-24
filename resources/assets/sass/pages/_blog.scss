@@ -1,0 +1,93 @@
+// Blog Page
+.blog-jumbotron {
+	height: auto;
+	background-color: $grey-50;
+
+	h1 {
+		text-transform: uppercase;
+		color: $nav-color;
+	}
+}
+.blog-home {
+	margin-top: 60px;
+	margin-bottom: 40px;
+	font-family: 'Libre Baskerville';
+	a {
+			text-decoration: none;
+			&:hover { text-decoration: none !important; }
+			&:focus { text-decoration: none !important; }
+		}
+		.row {
+			padding: 45px 20px;
+		}
+	.blog-listing {
+		margin-bottom: 20px;
+		border: 1px solid $grey-200;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+		@include transition(all .3s ease-in-out);
+		&:hover {
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.24);
+			text-decoration: none !important;
+		}
+			h2 {
+				font-size: 3.5em;
+				color: $grey-800;
+				
+			}
+		p {
+			font-size: 2em;
+			color: $grey-600;
+		}
+			.bl-photo {
+				width: 100%;
+				padding-top: 300px;
+				margin-top: 20px;
+				background-position: 50% 50%;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			.published-footer {
+				color: $deep-orange-500;
+			}
+	}
+}
+
+.blog-footer {
+	padding:100px;
+	background-color: $nav-color;
+	h1 {
+		font-size: 3em;
+		color: $grey-50;
+		@media(max-width: $screen-xs) {
+				font-size: 2em;
+			}
+	}
+
+	.social {
+		.col-sm-2 {
+			margin-bottom: 30px;
+		}
+		margin-top: 60px;
+		.fa-twitter-square{
+			color: #55acee;
+		}
+		.fa-facebook-square{
+			color: #3b5998;
+		}
+		.fa-instagram {
+			color: #3f729b;
+		}
+		.fa-envelope {
+			color: $deep-orange-500;
+		}
+		.fa-phone-square {
+			color: $green-500;
+		}
+		i {
+			font-size: 3.5em;
+			@media(max-width: $screen-xs) {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

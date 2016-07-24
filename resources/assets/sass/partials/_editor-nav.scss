@@ -1,0 +1,22 @@
+.editor-nav {
+    margin-bottom: 0px;
+    padding: 20px 0;
+    p {
+        padding: ($navbar-padding-vertical + 5) $navbar-padding-horizontal;
+        line-height: $line-height-computed;
+        white-space: nowrap;
+    }
+    img {
+            height: 30px;
+            width: 30px;
+            border-radius: 5px;
+    }
+		.image-icon {
+			padding: $navbar-padding-vertical $navbar-padding-horizontal;
+			display: inline-block;
+			line-height: $line-height-computed;
+    }
+    .dropdown-menu {
+        padding: 20px;
+    }
+}

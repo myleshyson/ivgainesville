@@ -1,0 +1,52 @@
+// Posts Listing Page
+.hb-list {
+    .dash-list {
+        margin-bottom: 40px;
+
+        h2 {
+            margin: 0;
+        }
+    }
+    .page-header {
+        h1 {
+            margin: 0;
+        }
+    }
+    .modal-delete {
+        display: inline-block;
+    }
+}
+.thin {
+    width: 0.01% !important;
+}
+.post-thumbnail {
+    width: 100px;
+}
+.photo-list {
+    margin-bottom: 20px;
+
+    .post-image {
+        form {
+            position: absolute;
+            right: 0;
+            top: -16px;
+
+            .thumbnail-delete {
+                height: 30px;
+                width: 30px;
+                border-radius: 100%;
+                color: whitesmoke;
+                border: none;
+                background-color: rgba(0, 0, 0, .6);
+                outline: none;
+            }
+        }
+        .post-thumbnail {
+            width: 100%;
+            padding-top: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+    }
+}

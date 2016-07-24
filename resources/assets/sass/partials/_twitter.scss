@@ -1,0 +1,40 @@
+.twitter-wrapper { 
+		#iv-tweets { 
+			.col-md-12 { list-style: none; color: $grey-700; margin-top: 30px; padding-left: 0px;
+				 > div { font-size: 12px; margin: 0 auto 10px auto; background: $grey-50; border-left: 10px solid #003B6E;
+					.user { 
+						text-align: left;
+						padding: 10px;
+						margin-bottom: 20px;
+						a { margin-right: 200px; color: white; 
+							&:hover { text-decoration: none; }
+							span:hover { color: $yellow-800; text-decoration: none;} 
+						}
+						img { margin-right: 5px; width: 8%; }
+						span { font-size: 1.3em; color: #003B6E; }
+					}
+					.tweet { font-size: 19px;
+						  a { color: $yellow-800; }
+					  }
+					.interact { 
+						padding: 10px; display: none;
+						a { font-size: 30px; margin: 0 30px; color: $grey-400; 
+							&:nth-child(1):hover {  
+								:hover { color: $cyan-A400; }
+							}
+							&:nth-child(2):hover {  
+								:hover { color: $teal-A400; }
+							}	
+							&:nth-child(3):hover {  
+								:hover { color: $red-600; }
+							}						
+
+
+						} 
+					}
+					img { max-width: 100%; }
+					.timePosted { display: none; }
+				}
+			}
+		}
+	}

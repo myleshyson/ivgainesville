@@ -1,0 +1,48 @@
+// Create/Update Styles
+
+
+.post-container {
+   width: 700px;
+   margin: 150px auto;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    h1, h2, h3, h4, h5, h6 {
+    	color: $grey-700;
+    }
+
+    .bootstrap-switch {
+        .bootstrap-switch-handle-off, .bootstrap-switch-handle-on, .bootstrap-switch-label {
+            height: initial;
+        }
+    }
+    .title-editable {
+    	font-size: 4em;
+    	&:focus {
+    		outline: 0;
+    	}
+		&:after {
+			font-style: normal;
+			font-weight: 900;
+			color: $grey-400;
+		}
+    }
+    .body-editable {
+    	font-size: 2rem;
+    	.medium-insert-buttons-addons {
+    		top: -40px;
+    		li {
+    			padding: 10px 0;
+    		}
+    	}
+		.fa {
+			margin-top: 7px;
+		}
+    	&:focus {
+    		outline: 0;
+    	}
+		&:after {
+			font-style: normal;
+			color: $grey-400;
+			font-weight: 900;
+		}
+    }
+}

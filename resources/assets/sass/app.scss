@@ -1,0 +1,154 @@
+// Custom Variables
+@import "partials/variables";
+
+// Bootstrap Library and Bourbon Library
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "bourbon/bourbon";
+
+// Partial Sass
+@import "partials/footer";
+@import "partials/nav";
+@import "partials/editor-nav";
+@import "partials/dash-nav";
+@import "partials/twitter";
+@import "partials/instafeed";
+
+// Pages
+@import "pages/front-page";
+@import "pages/about";
+@import "pages/small-groups";
+@import "pages/contact";
+@import "pages/blog";
+@import "pages/blog-show";
+@import "pages/blog-form";
+@import "pages/login";
+@import "pages/register";
+@import "pages/dashboard";
+
+@font-face {
+    font-family: 'frutiger';
+    src: url("fonts/lte50327.6878.ttf"), url("fonts/lte50328.6880.ttf"), url("fonts/lte50329.6882.ttf");
+}
+
+@font-face {
+    font-family: 'novecento-medium';
+    src: url("fonts/Novecento Wide Medium/novecento-wide-medium.eot");
+    src: url("fonts/Novecento Wide Medium/novecento-wide-medium.eot") format("eot"), url("fonts/Novecento Wide Medium/novecento-wide-medium.woff2") format("woff2"), url("fonts/Novecento Wide Medium/novecento-wide-medium.woff") format("woff"), url("fonts/Novecento Wide Medium/novecento-wide-medium.ttf") format("truetype"), url("fonts/Novecento Wide Medium/novecento-wide-medium.svg") format("svg");
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: 'Roboto';
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Open Sans';
+	font-weight: 700;
+}
+
+.btn {
+	font-family: 'Roboto';
+}
+.btn:focus {
+    outline: 0 !important;
+}
+
+a {
+    @include backface-visibility(hidden);
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+.row {
+    @include backface-visibility(hidden);
+}
+
+.boxes {
+    text-align: center;
+
+    @include align-items(center);
+
+    @include display(flex);
+
+    @include flex-direction(column);
+
+    @include justify-content(center);
+
+    padding: 100px 0px;
+    box-shadow: 0;
+    height: 400px;
+    -webkit-transform-style: preserve-3d;
+
+    @include transition-property(transform);
+
+    @include transition-duration(0.2s);
+
+    @include transition-timing-function(ease-in-out);
+
+    @include backface-visibility(hidden);
+
+    cursor: pointer;
+    color: rgba(#fff, 0.9);
+    overflow: hidden;
+    -webkit-transform: scale(1);
+    -webkit-transform: translate3D(0, 0, 0);
+
+    @media (max-width: $screen-xs-max) {
+        height: 650px;
+        padding: 300px 0px;
+    }
+
+    h1 {
+        font-size: 3em;
+
+        @include transition-property(transform);
+
+        @include transition-duration(0.2s);
+
+        @include transition-timing-function(ease-in-out);
+
+        @include backface-visibility(hidden);
+
+        @media (max-width: $screen-xs-max) {
+            font-size: 2em;
+        }
+    }
+
+    .fa {
+        font-size: 3.3em;
+
+        @include transition-property(transform);
+
+        @include transition-duration(0.2s);
+
+        @include transition-timing-function(ease-in-out);
+
+        @include backface-visibility(hidden);
+
+        -webkit-transform: scale(1);
+        -webkit-transform: translate3D(0, 0, 0);
+    }
+
+    &:hover {
+        z-index: 999;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 10px 20px rgba(0, 0, 0, 0.23);
+
+        h1 {
+            @include transform(scale(1.4));
+        }
+
+        i {
+            @include transform(scale(1.4));
+        }
+    }
+}

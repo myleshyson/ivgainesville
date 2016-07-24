@@ -1,0 +1,48 @@
+// About Page
+.about-jumbotron{
+	background-color: $grey-100;
+	height: 80%;
+	h1 {
+		color: $blue-900;
+	}
+	span {
+		color: $yellow-900;
+	}
+}
+
+.video {
+	background-color: darken(#384C64, 10%);
+}
+.core-values {
+	h1 { 
+		font-size: 5.5em; color: $grey-700; 
+		@media (max-width: $screen-xs-max) { font-size: 4em; }
+	}
+	li {
+		font-size: 3.3em;
+		margin-right: 30px;
+		color: $grey-500;
+		@media (max-width: $screen-xs-max) { font-size: 2em; }
+	}
+}
+
+.purpose {
+	background-color: $nav-color;
+
+	h1{
+		margin-bottom: 40px;
+	}
+	i.fa {
+		font-size: 5em;
+	}
+}
+
+.doctrine { 
+	background-color: $yellow-900; 
+	h1{
+		margin-bottom: 40px;
+	}
+	i.fa {
+		font-size: 5em;
+	}
+}
