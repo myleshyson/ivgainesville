@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Article;
-use Carbon\Carbon;
-use App\ArticlePhoto;
-use Illuminate\Http\Request;
 use Acme\Repos\PostsRepoInterface;
-use App\Http\Controllers\Controller;
+use App\Article;
+use App\ArticlePhoto;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
 {
@@ -29,7 +26,6 @@ class BlogController extends Controller
         $this->postsRepo = $postsRepo;
 
         $this->middleware('auth');
-
     }
     /**
      * Display a listing of the resource.
@@ -37,10 +33,9 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Article $article)
-    {   
+    {
         $sortBy = \Illuminate\Support\Facades\Request::get('sortBy');
-        if($sortBy == '') {
-            
+        if ($sortBy == '') {
             $sortBy = 'published_at';
         }
         $order = \Illuminate\Support\Facades\Request::get('order');
@@ -50,47 +45,45 @@ class BlogController extends Controller
     }
 
     /**
-     * Return Create Form
+     * Return Create Form.
+     *
      * @return [type] [description]
      */
     public function create()
     {
-       
         $user = Auth::user();
-        $article = new Article;
+        $article = new Article();
         $article->published_at = Carbon::now();
         $updated = $article->updated_at;
         $now = Carbon::now();
+
         return view('dashboard.posts.create', compact('user', 'article', 'updated', 'now'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     'title' => 'strp',
-        //     'body' => 'strp',
-        // ]);
-        
         $article = $this->createArticle($request);
         $id = $article->id;
 
         return response()->json([
             'success' => true,
             'message' => 'You did it!',
-            'id'      => $id
-            ]);
+            'id' => $id,
+        ]);
     }
 
-     /**
+    /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Article $article)
@@ -98,6 +91,7 @@ class BlogController extends Controller
         $user = Auth::user();
         $updated = $article->updated_at;
         $now = Carbon::now();
+
         return view('dashboard.posts.edit', compact('article', 'user', 'updated', 'now'));
     }
 
@@ -113,71 +107,68 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Article $article, Request $request)
     {
-        // $this->validate($request, [
-        //     'title' => 'strp',
-        //     'body' => 'strp',
-        // ]);
-
         $this->updateArticle($request, $article);
 
         return response()->json([
             'success' => true,
             'message' => 'You did it!',
             'updated' => $article->updated_at->toCookieString(),
-            'id'      => $article->id
-            ]);
+            'id' => $article->id,
+        ]);
     }
-
 
     public function addPhoto(Article $article, Request $request)
     {
         $file = $request->file('file');
 
-        $name = time() . $file->getClientOriginalName();
+        $name = time().$file->getClientOriginalName();
 
         $file->move('article/photos', $name);
 
-        $article->photos()->create(['path' => 'article/photos/' . $name]);
+        $article->photos()->create(['path' => 'article/photos/'.$name]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function photos(Article $article)
     {
         $photo = $article->photos;
-        
+
         return view('dashboard.posts.photos', compact('article', 'photo'));
     }
 
-   
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
-    {   
+    {
         Article::destroy($request->input('ids'));
-        
-        return response()->json([ 'success' => true, 'message' => 'You did it!' ]);
 
+        return response()->json(['success' => true, 'message' => 'You did it!']);
     }
 
     /**
-     * Deletes a blog photo
-     * @param   $id 
-     * @return redirect
+     * Deletes a blog photo.
+     *
+     * @param   $id
+     *
+     * @return Illuminate\Http\Response
      */
     public function destroyPhoto($id)
     {
@@ -187,12 +178,13 @@ class BlogController extends Controller
 
         return redirect()->back();
     }
-    
+
     /**
-     * Save a new article
-     * 
-     * @param  ArticleRequest $request [description]
-     * @return [type]                  [description]
+     * Save a new article.
+     *
+     * @param  Illuminate\Http\Request
+     *
+     * @return Saved Article
      */
     private function createArticle(Request $request)
     {
@@ -205,20 +197,25 @@ class BlogController extends Controller
 
             'published_at' => null,
 
-            'is_published' => false
-            ]));
+            'is_published' => false,
+        ]));
 
         return $article;
     }
 
+    /**
+     * @param Illuminate\Http\Request, App\Article
+     *
+     * @return Updated Article
+     */
     private function updateArticle(Request $request, Article $article)
     {
         $published = $request->input('is_published');
-            $updated = $article->update([
-            'title'        => $request->input('title'),
-            'body'         => $request->input('body'),
+        $updated = $article->update([
+            'title' => $request->input('title'),
+            'body' => $request->input('body'),
             'published_at' => $request->input('published_at'),
-            'is_published' => filter_var($published, FILTER_VALIDATE_BOOLEAN)
+            'is_published' => filter_var($published, FILTER_VALIDATE_BOOLEAN),
         ]);
 
         return $updated;
