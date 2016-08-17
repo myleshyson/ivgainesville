@@ -1,7 +1,7 @@
 <nav id="my-nav" @if( Request::is('blog') || Request::is('blog/*')) style="background-color: #FAFAFA; position: relative;" @endif>
           <div class="bar container">
             @unless( Request::is('blog') || Request::is('blog/*'))  
-            <a class="logo" href=""><img src="/images/iv-social.png"></a>
+            {{-- <a class="logo" href=""><img src="/images/Gainesville_logo_blue_FINAL5.png"></a> --}}
             @endunless
             
             @unless($menuButton || $submitButton || $blogButton)

@@ -202,12 +202,11 @@ $nav-color: rgb(0,52,99);
 			.nav-list-item {
 				cursor: pointer;
 				&:hover {
-						background: $deep-orange-A200;
+						a{
+							color: $deep-orange-500;
+						}
 						text-decoration: none;
 						cursor: pointer;
-						a {
-							color: $white;
-						}
 					}
 				.animsition-link {
 					padding: 8px 0 0;
@@ -244,17 +243,21 @@ $nav-color: rgb(0,52,99);
 
 	#my-nav {
 	background: none;
+	height: 100%;
 
 		.bar {
 			background: none;
+			height: 100%;
 		}
 		.nav-background {
 			opacity: 1;
 			visibility: visible;
+			height: 100%;
 		}
 		ul.nav-list {
 			visibility: visible;
 			opacity: 1;
+			height: 100%;
 			-moz-transform: translateY(0);
 			-webkit-transform: translateY(0);
 			transform: translateY(0);

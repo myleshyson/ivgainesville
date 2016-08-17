@@ -1,14 +1,15 @@
 {
   "private": true,
   "devDependencies": {
-    "bootstrap-sass": "^3.3.6",
-    "gulp": "^3.8.8",
-    "handlebars": "^4.0.5",
-    "laravel-elixir-imagemin": "^0.2.3",
-    "node-waves": "^0.7.4"
+    "bootstrap-sass": "*",
+    "gulp": "*",
+    "handlebars": "*",
+    "laravel-elixir-imagemin": "*",
+    "node-waves": "*"
   },
   "dependencies": {
-    "laravel-elixir": "^4.0.0",
-    "bootstrap-sass": "^3.0.0"
+    "bootstrap-sass": "*",
+    "laravel-elixir": "*",
+    "material-design-color": "^2.3.1"
   }
 }
